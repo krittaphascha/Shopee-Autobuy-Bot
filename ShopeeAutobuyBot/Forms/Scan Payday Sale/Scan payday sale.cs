@@ -94,7 +94,7 @@ namespace Shopee_Autobuy_Bot
                     int total_count;
 
                     string collectionId = tbCollectionId.Text;
-                    string url = String.Format("https://shopee.com.my/api/v4/collection/get_items?collection_id={0}&limit=150&show_collection_info=true&source=1", collectionId);
+                    string url = String.Format("https://shopee.co.th/api/v4/collection/get_items?collection_id={0}&limit=150&show_collection_info=true&source=1", collectionId);
                     JObject collectionInfo = JObject.Parse(GetJson(url));
                     JToken errorMsg = collectionInfo["error_msg"];
                     if (errorMsg.ToString() != string.Empty)
@@ -132,7 +132,7 @@ namespace Shopee_Autobuy_Bot
 
                     for (i = 150; i <= total_count; i = i + 150)
                     {
-                        string url_ = "https://shopee.com.my/api/v4/collection/get_items?collection_id=" + collectionId + "&limit=150&show_collection_info=true&source=1&next_offset=" + i.ToString();
+                        string url_ = "https://shopee.co.th/api/v4/collection/get_items?collection_id=" + collectionId + "&limit=150&show_collection_info=true&source=1&next_offset=" + i.ToString();
                         JObject collectionInfo_ = JObject.Parse(GetJson(url_));
                         JToken errorMsg_ = collectionInfo_["error_msg"];
                         if (errorMsg.ToString() != string.Empty)
@@ -185,8 +185,8 @@ namespace Shopee_Autobuy_Bot
                         itemId = nw.itemid;
                         shopId = nw.shopid;
 
-                        string productLinkJson = string.Format("https://shopee.com.my/api/v4/item/get?itemid={0}&shopid={1}", itemId, shopId);
-                        url__ = string.Format("https://shopee.com.my/product/{0}/{1}", shopId, itemId);
+                        string productLinkJson = string.Format("https://shopee.co.th/api/v4/item/get?itemid={0}&shopid={1}", itemId, shopId);
+                        url__ = string.Format("https://shopee.co.th/product/{0}/{1}", shopId, itemId);
                         JObject itemInfo = JObject.Parse(GetJson(productLinkJson));
                         JToken errorMsg__ = itemInfo["Error"];
                         if (errorMsg.ToString() != string.Empty)

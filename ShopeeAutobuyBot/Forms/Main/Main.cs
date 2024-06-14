@@ -200,7 +200,7 @@ namespace Shopee_Autobuy_Bot
                     if ((_profileService.SelectedProfile.BuyingMode.mode == BuyingMode.Normal
                         || _profileService.SelectedProfile.BuyingMode.mode == BuyingMode.Flash_Shocking
                         || _profileService.SelectedProfile.BuyingMode.mode == BuyingMode.Below_Price)
-                    && !_profileService.SelectedProfile.ProductDetail.product_link.Contains("https://shopee.com.my/"))
+                    && !_profileService.SelectedProfile.ProductDetail.product_link.Contains("https://shopee.co.th/"))
                     {
                         MessageBox.Show("Link not valid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -235,7 +235,7 @@ namespace Shopee_Autobuy_Bot
                     {
                         if (_profileService.SelectedProfile.BuyingMode.mode == BuyingMode.Cart
                         || _profileService.SelectedProfile.BuyingMode.mode == BuyingMode.Below_Price_Cart)
-                            _seleniumService.GoToUrl("https://shopee.com.my/cart");
+                            _seleniumService.GoToUrl("https://shopee.co.th/cart");
                         else
                             _seleniumService.GoToUrl(_profileService.SelectedProfile.ProductDetail.product_link);
                     }
@@ -335,7 +335,7 @@ namespace Shopee_Autobuy_Bot
                     }
                     else if (_profileService.SelectedProfile.BuyingMode.mode == BuyingMode.Cart) //checkout form cart
                     {
-                        _seleniumService.GoToUrl("https://shopee.com.my/cart");
+                        _seleniumService.GoToUrl("https://shopee.co.th/cart");
                         stepType = 96;
                     }
                     else if (_profileService.SelectedProfile.BuyingMode.mode == BuyingMode.Normal) //normal
@@ -345,7 +345,7 @@ namespace Shopee_Autobuy_Bot
                     }
                     else if (_profileService.SelectedProfile.BuyingMode.mode == BuyingMode.Below_Price_Cart) // price specific CART CHECKOUT
                     {
-                        _seleniumService.GoToUrl("https://shopee.com.my/cart");
+                        _seleniumService.GoToUrl("https://shopee.co.th/cart");
                         stepType = 94;
                     }
                     _autoBuyService.ShopeeAutobuy(DateTime.Now);
@@ -509,7 +509,7 @@ namespace Shopee_Autobuy_Bot
                 // navigate chrome to shopee website
                 try
                 {
-                    _seleniumService.GoToUrl("https://shopee.com.my/");
+                    _seleniumService.GoToUrl("https://shopee.co.th/");
                 }
                 catch (Exception ex)
                 {

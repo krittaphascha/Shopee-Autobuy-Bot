@@ -179,12 +179,12 @@ namespace Shopee_Autobuy_Bot.Services
         {
             try
             {
-                string pageUrl = "https://shopee.com.my/cart";
+                string pageUrl = "https://shopee.co.th/cart";
                 _seleniumService.WaitUrlContainString(pageUrl);
                 _autoBuyLoggerService.AutoBuyProcessLog("Cart page loaded.", Color.DarkGreen, true, true, true);
                 //Thread.Sleep(ConfigInfo.delay_step_96);
 
-                if (_seleniumService.UrlContainString("https://shopee.com.my/buyer/login"))
+                if (_seleniumService.UrlContainString("https://shopee.co.th/buyer/login"))
                 {
                     _autoBuyLoggerService.AutoBuyProcessLog("Shopee account not logged in.", Color.IndianRed, true, true, true);
                     return;
@@ -236,7 +236,7 @@ namespace Shopee_Autobuy_Bot.Services
             }
             catch (Exception ex)
             {
-                AutobuyErrorHandler(GetCurrentMethodName(), new object[] { buyMode }, ex, "https://shopee.com.my/cart", false, _profileService.SelectedProfile.BotSettings.autorefresh_webpage);
+                AutobuyErrorHandler(GetCurrentMethodName(), new object[] { buyMode }, ex, "https://shopee.co.th/cart", false, _profileService.SelectedProfile.BotSettings.autorefresh_webpage);
             }
         }
 
